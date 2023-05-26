@@ -10,7 +10,7 @@ import IconBrowser from './icons/IconBrowser.vue'
         Made with <span class="heart">♥</span> by
         <a href="https://twitter.com/undefinedRobert">@undefinedRobert</a>
       </span>
-      <div>
+      <div class="links">
         <a href="https://github.com/robertkibet/vue-firestore-crud"> <IconGithub /> </a>
         <a href="https://twitter.com/undefinedRobert"> <IconTwitter /> </a>
         <a href="https://kibet.me/"> <IconBrowser /> </a>

@@ -1,16 +1,18 @@
 <template>
   <AppHeader :loading="loading" />
 
-  <div class="cities">
-    <div class="city" v-for="city in cities" :key="city.id">
-      <router-link :to="{ path: `/cities/${city.id}` }" class="details">
-        <p>{{ city.name }}</p>
-        <p>{{ city.country }}</p>
-      </router-link>
-      <div class="actions">
-        <a @click="deleteCity(city.id)" href="#" :class="['delete', loading && 'disabled']"
-          >Delete</a
-        >
+  <div class="scroll">
+    <div class="cities">
+      <div class="city" v-for="city in cities" :key="city.id">
+        <router-link :to="{ path: `/cities/${city.id}` }" class="details">
+          <p>{{ city.name }}</p>
+          <p>{{ city.country }}</p>
+        </router-link>
+        <div class="actions">
+          <a @click="deleteCity(city.id)" href="#" :class="['delete', loading && 'disabled']"
+            >Delete</a
+          >
+        </div>
       </div>
     </div>
   </div>
