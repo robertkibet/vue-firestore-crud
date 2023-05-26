@@ -3,7 +3,6 @@ import IconPlus from './icons/IconPlus.vue'
 import IconHome from './icons/IconHome.vue'
 import { RouterLink } from 'vue-router'
 
-import { defineProps } from 'vue'
 defineProps({
   loading: Boolean,
   hideNew: Boolean
