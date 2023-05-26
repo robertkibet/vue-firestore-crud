@@ -1,32 +1,24 @@
 <template>
-  <main>
-    <div class="header">
-      <p class="title">List</p>
-      <div>
-        <a href="#" v-if="loading" class="new-city">
-          <div class="loader"></div>
-        </a>
-        <RouterLink v-if="!loading" to="/add-city" class="new-city">+ Add</RouterLink>
+  <AppHeader :loading="loading" />
+
+  <div class="cities">
+    <div class="city" v-for="city in cities" :key="city.id">
+      <router-link :to="{ path: `/cities/${city.id}` }" class="details">
+        <p>{{ city.name }}</p>
+        <p>{{ city.country }}</p>
+      </router-link>
+      <div class="actions">
+        <a @click="deleteCity(city.id)" href="#" :class="['delete', loading && 'disabled']"
+          >Delete</a
+        >
       </div>
     </div>
-    <div class="cities">
-      <div class="city" v-for="city in cities" :key="city.id">
-        <router-link :to="{ path: `/cities/${city.id}` }" class="details">
-          <p>{{ city.name }}</p>
-          <p>{{ city.country }}</p>
-        </router-link>
-        <div class="actions">
-          <a @click="deleteCity(city.id)" href="#" :class="['delete', loading && 'disabled']"
-            >Delete</a
-          >
-        </div>
-      </div>
-    </div>
-  </main>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import AppHeader from '../../components/AppHeader.vue'
 import citiesColRef from '../../utils/firebase'
 import { getDocs, doc, deleteDoc, orderBy, query } from 'firebase/firestore'
 
