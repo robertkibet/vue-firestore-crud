@@ -9,19 +9,33 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: AllCities
+      component: AllCities,
+      meta: {
+        title: 'Cities - Home'
+      }
     },
     {
       path: '/cities/add',
       name: 'add-city',
-      component: AddCity
+      component: AddCity,
+      meta: {
+        title: 'Cities - Add'
+      }
     },
     {
       path: '/cities/:cityId',
       name: 'edit-city',
-      component: EditCity
+      component: EditCity,
+      meta: {
+        title: 'Cities - Edit'
+      }
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = (to.meta.title as string) || 'Cities - CRUD App'
+  next()
 })
 
 export default router
