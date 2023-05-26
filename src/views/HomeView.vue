@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import AllCitiesVue from './cities/AllCities.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <AllCitiesVue />
 </template>
