@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import AllCities from '../views/cities/AllCities.vue'
 import AddCity from '../views/cities/AddCity.vue'
 import EditCity from '../views/cities/EditCity.vue'
 
@@ -9,10 +9,10 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: AllCities
     },
     {
-      path: '/add-city',
+      path: '/cities/add',
       name: 'add-city',
       component: AddCity
     },
@@ -20,14 +20,6 @@ const router = createRouter({
       path: '/cities/:cityId',
       name: 'edit-city',
       component: EditCity
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
     }
   ]
 })

@@ -1,24 +1,24 @@
 <template>
-  <main>
-    <h1>
-      Edit <code>{{ cityId || '' }}</code>
-    </h1>
-    <form class="form" @submit.prevent="updateCity">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input v-model="cityInfo.name" class="form-control" type="text" name="name" />
-      </div>
-      <div class="form-group">
-        <label for="country">Country</label>
-        <input v-model="cityInfo.country" class="form-control" type="text" name="country" />
-      </div>
-      <button :class="['button submit', loading && 'disabled']" :disabled="loading">Save</button>
-    </form>
-  </main>
+  <AppHeader :loading="loading" :hideNew="true" />
+  <h1>
+    Edit <code>{{ cityId || '' }}</code>
+  </h1>
+  <form class="form" @submit.prevent="updateCity">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input v-model="cityInfo.name" class="form-control" type="text" name="name" />
+    </div>
+    <div class="form-group">
+      <label for="country">Country</label>
+      <input v-model="cityInfo.country" class="form-control" type="text" name="country" />
+    </div>
+    <button :class="['button submit', loading && 'disabled']" :disabled="loading">Save</button>
+  </form>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import AppHeader from '../../components/AppHeader.vue'
 import citiesColRef from '../../utils/firebase'
 import { getDoc, doc, setDoc, serverTimestamp } from 'firebase/firestore'
 import { useRouter, useRoute } from 'vue-router'

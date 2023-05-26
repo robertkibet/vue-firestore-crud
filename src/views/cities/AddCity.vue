@@ -1,22 +1,22 @@
 <template>
-  <main>
-    <h1>Add City</h1>
-    <form class="form" @submit.prevent="addCity">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input class="form-control" type="text" name="name" placeholder="City" />
-      </div>
-      <div class="form-group">
-        <label for="country">Country</label>
-        <input class="form-control" type="text" name="country" placeholder="Country" />
-      </div>
-      <button :class="['button submit', loading && 'disabled']" :disabled="loading">Save</button>
-    </form>
-  </main>
+  <AppHeader :loading="loading" />
+  <h1>Add City</h1>
+  <form class="form" @submit.prevent="addCity">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input class="form-control" type="text" name="name" placeholder="City" />
+    </div>
+    <div class="form-group">
+      <label for="country">Country</label>
+      <input class="form-control" type="text" name="country" placeholder="Country" />
+    </div>
+    <button :class="['button submit', loading && 'disabled']" :disabled="loading">Save</button>
+  </form>
 </template>
 
 <script setup lang="ts">
 import citiesColRef from '../../utils/firebase'
+import AppHeader from '../../components/AppHeader.vue'
 import { addDoc, query, where, getDocs, serverTimestamp } from 'firebase/firestore'
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'

@@ -1,27 +1,23 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import Footer from './components/AppFooter.vue'
 </script>
 
 <template>
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Cities of the World</RouterLink>
+        <RouterLink to="/">
+          <h2>Cities of the World</h2>
+        </RouterLink>
       </nav>
     </div>
   </header>
 
   <div class="container">
-    <RouterView />
-  </div>
-  <footer>
-    <div class="wrapper">
-      <p>
-        Made with <span class="heart">♥</span> by<a href="https://github.com/robertkibet"
-          >@robertkibet on GitHub</a
-        >
-      </p>
-      <a href="https://kibet.me/">My Portfolio</a>
+    <div class="content">
+      <RouterView />
     </div>
-  </footer>
+  </div>
+  <Footer />
 </template>
